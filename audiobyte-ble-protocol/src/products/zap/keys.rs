@@ -147,8 +147,8 @@ impl ZapPropertyKey for ReferencePower {}
 // impl crate::private::PropKeyInternal for HubConnection {
 //     const CMD_KEY: &'static str = "HUBCONN";
 // }
-
-impl ZapPropertyKey for HubConnection {}
+//
+// impl ZapPropertyKey for HubConnection {}
 
 lazy_static! {
 pub(super) static ref CMD_KEY_MAPPING: CmdKeyMapping = {

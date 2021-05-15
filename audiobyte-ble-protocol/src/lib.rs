@@ -1,6 +1,8 @@
 use std::any::{Any, TypeId};
 use std::borrow::Cow;
 
+use crate::private::{ProductTypeInternal, PropKeyInternal};
+
 pub mod products;
 
 mod private;
@@ -12,7 +14,7 @@ pub enum Error {
 
 pub type Result<T> = std::result::Result<T, Error>;
 
-pub trait PropertyKey: private::PropKeyInternal
+pub trait PropertyKey: PropKeyInternal
     where <Self as typemap::Key>::Value: Clone {
     const CHARACTERISTIC: u16;
 
@@ -46,15 +48,14 @@ impl<K> PropertyKeyDelegate for K
 
     fn parse_value(&self, line: &str) -> Result<Box<dyn Any>> {
         let cow = Self::parse_value(line)?;
-        return Result::Ok(Box::new(cow.into_owned()));
+        return Ok(Box::new(cow.into_owned()));
     }
 }
 
-pub trait ProductType
-    where <<Self as ProductType>::PropertyKey as typemap::Key>::Value: Clone {
-    type PropertyKey: PropertyKey;
-
-    fn parse_property(line: &str) -> Result<(PropertyKeyTypeId, Box<dyn Any>)>;
+pub trait ProductType: ProductTypeInternal {
+    fn parse_property(line: &str) -> Result<(PropertyKeyTypeId, Box<dyn Any>)> {
+        <Self as ProductTypeInternal>::parse_property(line)
+    }
 }
 
 pub struct PropertyKeyTypeId(TypeId);

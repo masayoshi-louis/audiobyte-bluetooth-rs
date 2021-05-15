@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 
-use crate::private::PropKeyInternal;
-use crate::Result;
+use crate::{ProductType, Result};
+use crate::private::{CmdKeyMapping, ProductTypeInternal, PropKeyInternal};
 
 pub mod keys;
 
@@ -18,3 +18,15 @@ impl<K> crate::PropertyKey for K
         todo!()
     }
 }
+
+pub struct Zap {}
+
+impl ProductTypeInternal for Zap {
+    fn cmd_key_mapping() -> &'static CmdKeyMapping {
+        &keys::CMD_KEY_MAPPING
+    }
+}
+
+impl ProductType for Zap {
+}
+
