@@ -2,4 +2,5 @@
 
 members = [
     "audiobyte-ble-protocol",
+    "audiobyte-ble",
 ]

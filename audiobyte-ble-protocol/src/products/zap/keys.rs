@@ -4,7 +4,7 @@ use lazy_static::lazy_static;
 
 use crate::private::{add_cmd_key_mapping, CmdKeyMapping};
 
-use self::super::ZapPropertyKey;
+use self::super::HydraZapPropertyKey;
 
 /// Zap power on/off
 pub struct Power;
@@ -17,7 +17,7 @@ impl crate::private::PropKeyInternal for Power {
     const CMD_KEY: &'static str = "ZAPONOFF";
 }
 
-impl ZapPropertyKey for Power {}
+impl HydraZapPropertyKey for Power {}
 
 /// Zap parameters (query only)
 pub struct Params;
@@ -30,7 +30,7 @@ impl crate::private::PropKeyInternal for Params {
     const CMD_KEY: &'static str = "ZAPPARAMS";
 }
 
-impl ZapPropertyKey for Params {}
+impl HydraZapPropertyKey for Params {}
 
 /// Zap digital voltage
 pub struct DigitalVoltage;
@@ -43,7 +43,7 @@ impl crate::private::PropKeyInternal for DigitalVoltage {
     const CMD_KEY: &'static str = "ZAPDV";
 }
 
-impl ZapPropertyKey for DigitalVoltage {}
+impl HydraZapPropertyKey for DigitalVoltage {}
 
 /// Zap analog voltage+
 pub struct PositiveAnalogVoltage;
@@ -56,7 +56,7 @@ impl crate::private::PropKeyInternal for PositiveAnalogVoltage {
     const CMD_KEY: &'static str = "ZAPAPV";
 }
 
-impl ZapPropertyKey for PositiveAnalogVoltage {}
+impl HydraZapPropertyKey for PositiveAnalogVoltage {}
 
 /// Zap analog voltage-
 pub struct NegativeAnalogVoltage;
@@ -69,7 +69,7 @@ impl crate::private::PropKeyInternal for NegativeAnalogVoltage {
     const CMD_KEY: &'static str = "ZAPANV";
 }
 
-impl ZapPropertyKey for NegativeAnalogVoltage {}
+impl HydraZapPropertyKey for NegativeAnalogVoltage {}
 
 /// Zap digital capacitor SP(?)
 pub struct DigitalCapacitorSP;
@@ -82,7 +82,7 @@ impl crate::private::PropKeyInternal for DigitalCapacitorSP {
     const CMD_KEY: &'static str = "ZAPDCAPSP";
 }
 
-impl ZapPropertyKey for DigitalCapacitorSP {}
+impl HydraZapPropertyKey for DigitalCapacitorSP {}
 
 /// Zap digital power on/off
 pub struct DigitalPower;
@@ -95,7 +95,7 @@ impl crate::private::PropKeyInternal for DigitalPower {
     const CMD_KEY: &'static str = "ZAPD";
 }
 
-impl ZapPropertyKey for DigitalPower {}
+impl HydraZapPropertyKey for DigitalPower {}
 
 /// Zap analog power on/off
 pub struct AnalogPower;
@@ -108,7 +108,7 @@ impl crate::private::PropKeyInternal for AnalogPower {
     const CMD_KEY: &'static str = "ZAPA";
 }
 
-impl ZapPropertyKey for AnalogPower {}
+impl HydraZapPropertyKey for AnalogPower {}
 
 /// Zap reference power on/off
 pub struct ReferencePower;
@@ -121,7 +121,7 @@ impl crate::private::PropKeyInternal for ReferencePower {
     const CMD_KEY: &'static str = "ZAPR";
 }
 
-impl ZapPropertyKey for ReferencePower {}
+impl HydraZapPropertyKey for ReferencePower {}
 
 // TODO move
 // /// Vox connections

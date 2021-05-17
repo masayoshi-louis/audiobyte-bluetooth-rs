@@ -53,6 +53,8 @@ impl<K> PropertyKeyDelegate for K
 }
 
 pub trait ProductType: ProductTypeInternal {
+    type PropertyKey: ?Sized;
+
     fn parse_property(line: &str) -> Result<(PropertyKeyTypeId, Box<dyn Any>)> {
         <Self as ProductTypeInternal>::parse_property(line)
     }
